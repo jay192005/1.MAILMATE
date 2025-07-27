@@ -14,7 +14,7 @@ Email:
 Reply:
 """
     response = client.chat.completions.create(
-        model="gpt-4-0613",  # or gpt-3.5-turbo
+        model="gpt-4o",  # or gpt-3.5-turbo
         messages=[{"role": "user", "content": prompt}]
     )
 
