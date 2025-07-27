@@ -1,12 +1,9 @@
-# email_generator.py
-
-import openai
+from openai import OpenAI
 import streamlit as st
 
-# Load API key from Streamlit secrets
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+# Correct usage for v1.x SDK
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-# Function to generate email response
 def generate_email_response(email_text, tone):
     prompt = f"""
 You are an AI assistant. Write a reply to the following email using a {tone.lower()} tone:
@@ -16,10 +13,9 @@ Email:
 
 Reply:
 """
-    response = openai.ChatCompletion.create(
-        model="gpt-4-0613",
+    response = client.chat.completions.create(
+        model="gpt-4-0613",  # or gpt-3.5-turbo
         messages=[{"role": "user", "content": prompt}]
     )
 
-    # Correct way to access the content of the response
-    return response.choices[0]["message"]["content"]
+    return response.choices[0].message.content
