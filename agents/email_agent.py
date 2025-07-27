@@ -17,7 +17,7 @@ Email:
 Reply:
 """
     response = openai.ChatCompletion.create(
-        model="gpt-4",
+        model="gpt-4-0613",
         messages=[{"role": "user", "content": prompt}]
     )
 
