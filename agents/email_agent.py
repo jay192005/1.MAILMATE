@@ -13,7 +13,7 @@ Email:
 Reply:
 """
     response = client.chat.completions.create(
-        model="o4-mini",
+        model="gpt-4o-2024-05-13",
         messages=[{"role": "user", "content": prompt}]
     )
     return response.choices[0].message.content
