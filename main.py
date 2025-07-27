@@ -1,11 +1,6 @@
 import streamlit as st
-from openai import OpenAI
 from agents.email_agent import generate_email_response
 from utils.email_sender import send_email
-
-# Load OpenAI API key securely from Streamlit secrets
-OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
-client = OpenAI(api_key=OPENAI_API_KEY)
 
 st.set_page_config(page_title="Auto Email Responder", layout="wide")
 st.title("📧 MailMate – Think Less, Send Smart")
